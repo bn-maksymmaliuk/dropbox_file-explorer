@@ -3,6 +3,8 @@ import { HomePage } from './pages/HomePage'
 import { AllFilesPage } from './pages/AllFilesPage'
 import { DeletedFiles } from './pages/DeletedFilesPage'
 import { NotFoundPage } from './pages/NotFoundPage'
+import './styles/normalize.scss'
+import './styles/reset.scss'
 
 export const App = () => {
   return (
