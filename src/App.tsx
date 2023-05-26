@@ -5,17 +5,28 @@ import { DeletedFiles } from './pages/DeletedFilesPage'
 import { NotFoundPage } from './pages/NotFoundPage'
 import './styles/normalize.scss'
 import './styles/reset.scss'
+import style from './App.module.scss'
+import { Header } from './components/Header'
+import { Sidebar } from './components/Header/Sidebar'
 
 export const App = () => {
   return (
-    <Routes>
-      <Route path='/' element={<HomePage />} />
+    <div className={style.app}>
+      <Header />
 
-      <Route path='all-files' element={<AllFilesPage />} />
+      <Sidebar />
 
-      <Route path='deleted-files' element={<DeletedFiles />} />
+      <main className={style.content}>
+        <Routes>
+          <Route path='/' element={<HomePage />} />
 
-      <Route path='*' element={<NotFoundPage />} />
-    </Routes>
+          <Route path='all-files' element={<AllFilesPage />} />
+
+          <Route path='deleted-files' element={<DeletedFiles />} />
+
+          <Route path='*' element={<NotFoundPage />} />
+        </Routes>
+      </main>
+    </div> 
   )
 }

@@ -8,6 +8,8 @@ html {
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
-  background-color: var(--color-main-background);
-  color: var(--color-contrast);
+}
+
+html, body, #root {
+  height: 100%;
 }

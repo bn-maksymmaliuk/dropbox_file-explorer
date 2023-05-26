@@ -1,0 +1,29 @@
+@import '../../../styles/utils/variables';
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+  background-color: #f7f5f2;
+  border-right: 1px solid $border-color;
+
+  height: 100%;
+  max-width: 220px;
+  min-width: 220px;
+  padding: 32px 0 0 32px;
+
+
+
+  &__title {
+    text-align: start;
+    color: #736c64;
+    font-weight: 400;
+    font-size: 20px;
+    transition: 0.3s;
+
+    &:hover {
+      color: #1e1919;
+    }
+  }
+}
