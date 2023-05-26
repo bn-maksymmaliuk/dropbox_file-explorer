@@ -4,10 +4,26 @@ import style from './Sidebar.module.scss'
 
 export const Sidebar: FC = () => {
   return (
-    <article className={style.sidebar}>
-      <NavLink to={"all-files"} className={style.sidebar__title}>All files</NavLink>
+    <nav className={style.navigation}>
+      <ul className={style.navigation__list}>
+        <li className={style.navigation__item}>
+          <NavLink to={"/"}>
+            Home Page
+          </NavLink>
+        </li>
 
-      <NavLink to={"deleted-files"} className={style.sidebar__title} >Deleted files</NavLink>
-    </article>
+        <li className={style.navigation__item}>
+          <NavLink to={"all-files"}>
+            All files
+          </NavLink>
+        </li>
+
+        <li className={style.navigation__item}>
+          <NavLink to={"deleted-files"}>
+            Deleted files
+          </NavLink>
+        </li>
+      </ul>
+    </nav>
   )
 }

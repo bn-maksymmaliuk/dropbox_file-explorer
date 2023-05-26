@@ -1,6 +1,6 @@
 @import '../../../styles/utils/variables';
 
-.sidebar {
+.navigation {
   display: flex;
   flex-direction: column;
 
@@ -15,15 +15,22 @@
 
 
 
-  &__title {
+  &__item {
+    display: inline-block;
     text-align: start;
     color: #736c64;
     font-weight: 400;
     font-size: 20px;
-    transition: 0.3s;
+    transition: 0.10s;
 
     &:hover {
       color: #1e1919;
+    }
+
+    &:focus {
+      color: #1e1919;
+      text-decoration: underline;
+      text-decoration-color:#736c64;
     }
   }
 }
