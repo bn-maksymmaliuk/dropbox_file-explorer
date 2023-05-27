@@ -2,11 +2,13 @@
   height: 100%;
   overflow: hidden;
 
-  &__content {
+  &__container {
     height: 100%;
     display: flex;
-    flex-wrap: wrap;
-    overflow: hidden;
-  }
 
+    &_content {
+      width: 100%;
+      padding: 20px 200px 20px 200px
+    }
+  }
 }

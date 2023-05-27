@@ -14,10 +14,10 @@ export const App = () => {
     <div className={style.app}>
       <Header />
       
-      <div className={style.app__content}>
+      <div className={style.app__container}>
         <Sidebar />
 
-        <main className={style.content}>
+        <main className={style.app__container_content}>
           <Routes>
             <Route path='/' element={<HomePage />} />
 

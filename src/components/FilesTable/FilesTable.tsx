@@ -1,38 +1,23 @@
 import { FC } from "react"
 import {
-  Table,
-  Thead,
-  Tbody,
-  Tr,
-  Th,
-  TableCaption,
-  TableContainer,
+  Grid,
+  GridItem,
 } from '@chakra-ui/react'
-import { File } from "../../types/File"
+import { Entries } from "../../types/Entries"
 import { FilesTableItem } from "../FilesTableItem"
 
 interface Props {
-  files: File[]
+  entries: Entries[]
 }
 
-export const FilesTable: FC<Props> = ({ files }) => {
+export const FilesTable: FC<Props> = ({ entries }) => {
   return (
-    <TableContainer>
-    <Table variant='striped' colorScheme='teal'>
-      <TableCaption>Imperial to metric conversion factors</TableCaption>
-      <Thead>
-        <Tr>
-          <Th>Name</Th>
-          <Th>Size</Th>
-          <Th isNumeric>Updated At</Th>
-        </Tr>
-      </Thead>
-      <Tbody>
-        {files.map(file => (
-          <FilesTableItem file={file} />
-        ))}
-      </Tbody>
-    </Table>
-  </TableContainer>
+    <Grid templateColumns='repeat(5, 1fr)' gap={6}>
+      {entries.map(element =>(
+        <GridItem>
+          <FilesTableItem file={element} />
+        </GridItem>
+      ))}
+    </Grid>
   )
 }
