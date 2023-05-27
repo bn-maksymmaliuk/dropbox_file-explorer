@@ -7,26 +7,28 @@ import './styles/normalize.scss'
 import './styles/reset.scss'
 import style from './App.module.scss'
 import { Header } from './components/Header'
-import { Sidebar } from './components/Header/Sidebar'
+import { Sidebar } from './components/Sidebar'
 
 export const App = () => {
   return (
     <div className={style.app}>
       <Header />
+      
+      <div className={style.app__content}>
+        <Sidebar />
 
-      <Sidebar />
+        <main className={style.content}>
+          <Routes>
+            <Route path='/' element={<HomePage />} />
 
-      <main className={style.content}>
-        <Routes>
-          <Route path='/' element={<HomePage />} />
+            <Route path='all-files' element={<AllFilesPage />} />
 
-          <Route path='all-files' element={<AllFilesPage />} />
+            <Route path='deleted-files' element={<DeletedFiles />} />
 
-          <Route path='deleted-files' element={<DeletedFiles />} />
-
-          <Route path='*' element={<NotFoundPage />} />
-        </Routes>
-      </main>
+            <Route path='*' element={<NotFoundPage />} />
+          </Routes>
+        </main>
+      </div>
     </div> 
   )
 }

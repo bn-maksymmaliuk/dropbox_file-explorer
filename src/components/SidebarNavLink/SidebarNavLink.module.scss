@@ -1,0 +1,16 @@
+.link {
+  color: #736c64;
+  font-weight: 400;
+  font-size: 20px;
+  transition: 0.3s;
+
+  &:hover {
+    color: #1e1919;
+  }
+}
+
+.active {
+  text-decoration: underline;
+  text-decoration-color: #1e1919a2;
+  color: #1e1919;
+}

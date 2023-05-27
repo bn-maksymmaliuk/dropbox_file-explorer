@@ -1,10 +1,12 @@
 .app {
   height: 100%;
-  display: flex;
-  flex-wrap: wrap;
   overflow: hidden;
-}
 
-.content {
-  height: 100%;
+  &__content {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+  }
+
 }
