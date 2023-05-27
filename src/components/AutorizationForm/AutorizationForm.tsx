@@ -1,6 +1,23 @@
-import { Spinner } from "@chakra-ui/react";
+import { 
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  Box, 
+  Button, 
+  Center, 
+  FormControl, 
+  FormErrorMessage, 
+  FormHelperText, 
+  FormLabel, 
+  Input, 
+  Stack
+} from "@chakra-ui/react";
 import { Dropbox } from "dropbox";
-import { FC, useEffect, useState } from "react";
+import { 
+  FC, 
+  useEffect, 
+  useState 
+} from "react";
 
 interface Props {
   onLogin: (token: string) => void;
@@ -9,6 +26,8 @@ interface Props {
 export const AutorizationForm: FC<Props> = ({ onLogin }) => {
   const [token, setToken] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [tokenError, setTokenError] = useState('')
+  const [lengthError, setLengthError] = useState(false);
 
   const userToken = window.localStorage.getItem('token');
 
@@ -18,23 +37,24 @@ export const AutorizationForm: FC<Props> = ({ onLogin }) => {
     }
   }, [onLogin, userToken])
 
-  if (userToken) {
-    return null;
-  }
-
   const dbx = new Dropbox({ accessToken: token });
 
-  const handleChangeToken = (event: React.ChangeEvent<HTMLInputElement>) => (
+  const handleChangeToken = (event: React.ChangeEvent<HTMLInputElement>) => {
     setToken(event.target.value)
-  )
+    setLengthError(false);
+    setTokenError('');
+  }
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setIsLoading(true);
 
     if (!token.length) {
-      throw new Error('Token field is empty');
+      setLengthError(true)
+      setIsLoading(false)
+      return
     }
+    
+    setIsLoading(true);
 
     try {
       await dbx.filesListFolder({ path: '' });
@@ -42,45 +62,79 @@ export const AutorizationForm: FC<Props> = ({ onLogin }) => {
       onLogin(token);
       window.localStorage.setItem('token', token);
     } catch (error) {
-      console.log(error);
-      
+      setTokenError('Token is not valid, try again');
+
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <>
-    {isLoading 
-      ? (
-        <Spinner
-          thickness='4px'
-          speed='0.65s'
-          emptyColor='gray.200'
-          color='blue.500'
-          size='xl'
-        />
-      ) 
-      : (
+    <Center paddingTop='50px'>
+      <Box maxW='600px'>
         <form onSubmit={handleSubmit}>
-          <label htmlFor="inputField">Введите текст:</label>
-        
-          <input 
-            type="text" 
-            id="inputField" 
-            name="inputField" 
-            onChange={handleChangeToken}
-            value={token}
-            required 
-          />
+          <FormControl
+            isInvalid={lengthError}
+            w='440px'
+          >
+            <FormLabel fontSize='28px' textAlign='center'>
+              Please enter your API token
+            </FormLabel>
 
-          <br/>
+            <Input
+              type="text" 
+              name="token" 
+              placeholder="Enter your token here..."
+              onChange={handleChangeToken}
+              mb='5px'
+            />
 
-          <button type="submit">Submit</button>
+            {lengthError && (
+              <FormErrorMessage>Token is requiered</FormErrorMessage>
+            )}
+
+            {tokenError && (
+              <Alert status='error'>
+                <AlertIcon />
+                <AlertTitle>{tokenError}</AlertTitle>
+              </Alert>
+            )}
+
+            <FormHelperText
+              mb='20px' 
+              fontSize='18px' 
+              fontWeight='400'
+              textAlign='center'
+            >
+              In order to access the files of your Dropbox account, go to{" "}
+
+              <a style={{textDecoration: 'underline', color: '#1976d2'}}
+                href="https://dropbox.github.io/dropbox-api-v2-explorer/#files_list_folder"
+              >
+                API Explorer
+              </a>
+
+              {" "}you can click "Get token" after which you can enter it in the field above
+            </FormHelperText>
+
+            <Stack 
+              direction='row' 
+              spacing={4}
+              justifyContent="center"
+            >
+              <Button
+                isLoading={isLoading}
+                type="submit" 
+                colorScheme='blue'
+                width='300px'
+                size={'lg'}
+              >
+                Submit
+              </Button>
+            </Stack>
+          </FormControl>
         </form>
-      )
-    } 
-    </>
-    
-  )
+      </Box>
+    </Center>
+  );
 }
