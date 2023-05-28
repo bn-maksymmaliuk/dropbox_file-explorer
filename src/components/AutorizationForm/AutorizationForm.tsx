@@ -29,7 +29,7 @@ export const AutorizationForm: FC<Props> = ({ onLogin }) => {
   const [tokenError, setTokenError] = useState('')
   const [lengthError, setLengthError] = useState(false);
 
-  const userToken = window.localStorage.getItem('token');
+  const userToken = window.sessionStorage.getItem('token');
 
   useEffect(() => {
     if (userToken) {
@@ -60,7 +60,7 @@ export const AutorizationForm: FC<Props> = ({ onLogin }) => {
       await dbx.filesListFolder({ path: '' });
 
       onLogin(token);
-      window.localStorage.setItem('token', token);
+      window.sessionStorage.setItem('token', token);
     } catch (error) {
       setTokenError('Token is not valid, try again');
 
