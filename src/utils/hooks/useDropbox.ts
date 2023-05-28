@@ -23,14 +23,14 @@ export const useDropbox = (token: string) => {
   const dbx = new Dropbox({ accessToken: token });
 
   const processEntries = (entries: Entries[]) => {
-    const BASE_FILE_URL = 'https://www.dropbox.com/home';
+    const BASE_URL = 'https://www.dropbox.com/home';
     const PREVIEW_PREFIX = '?preview=';
     const preparedEntries = entries.map((element) => {
       if (element['.tag'] === 'folder') {
         return element;
       }
 
-      const newUrl = BASE_FILE_URL 
+      const newUrl = BASE_URL 
       + element.path_lower 
       + PREVIEW_PREFIX 
       + element.name;
