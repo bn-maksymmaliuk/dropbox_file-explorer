@@ -2,9 +2,9 @@
 Introduction
 The Dropbox File Explorer is a web application that allows users to explore and manage files stored in their Dropbox accounts. It provides a user-friendly interface for browsing files, uploading new files, creating folders, and performing various file operations.
 
-##Features
--File Browsing: Users can navigate through their Dropbox files and folders in a tree-like structure.
--File Preview: Supported file types can be previewed directly in the application.
+## Features
+- File Browsing: Users can navigate through their Dropbox files and folders in a tree-like structure.
+- File Preview: Supported file types can be previewed directly in the application.
 -File Upload: Users can upload new files to their Dropbox accounts.
 -Folder Creation: Users can create new folders to organize their files.
 -File Operations: Users can perform operations like renaming, deleting, moving, and downloading files.
