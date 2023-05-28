@@ -10,7 +10,6 @@ import {
   FormHelperText, 
   FormLabel, 
   Input, 
-  Link, 
   Stack
 } from "@chakra-ui/react";
 import { Dropbox } from "dropbox";
