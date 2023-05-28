@@ -1,3 +1,5 @@
+@import '../../styles/utils/variables';
+
 .link {
   color: #736c64;
   font-weight: 400;
@@ -5,12 +7,12 @@
   transition: 0.3s;
 
   &:hover {
-    color: #1e1919;
+    color: $black-color;
   }
 }
 
 .active {
   text-decoration: underline;
   text-decoration-color: #1e1919a2;
-  color: #1e1919;
+  color: $black-color;
 }
