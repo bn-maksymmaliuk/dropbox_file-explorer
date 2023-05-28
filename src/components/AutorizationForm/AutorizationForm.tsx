@@ -10,6 +10,7 @@ import {
   FormHelperText, 
   FormLabel, 
   Input, 
+  Link, 
   Stack
 } from "@chakra-ui/react";
 import { Dropbox } from "dropbox";
@@ -108,8 +109,11 @@ export const AutorizationForm: FC<Props> = ({ onLogin }) => {
             >
               In order to access the files of your Dropbox account, go to{" "}
 
-              <a style={{textDecoration: 'underline', color: '#1976d2'}}
+              <a
                 href="https://dropbox.github.io/dropbox-api-v2-explorer/#files_list_folder"
+                style={{ textDecoration: 'underline', color: '#1976d2' }}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 API Explorer
               </a>
