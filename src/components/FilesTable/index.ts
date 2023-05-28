@@ -1,1 +1,1 @@
-export * from './FilesTable'
+export * from './FilesLayout'

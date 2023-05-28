@@ -26,10 +26,6 @@ export const Sidebar: FC = () => {
   return (
     <nav className={sidebarClasses}>
       <ul className={style.navigation__list}>
-        {/* <li className={style.navigation__item}>
-          <SidebarNavLink to="/" title="Home Page" />
-        </li> */}
-
         <li className={style.navigation__item}>
           <SidebarNavLink to="all" title="All Files" />
         </li>

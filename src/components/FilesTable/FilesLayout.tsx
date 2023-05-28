@@ -8,7 +8,7 @@ import { useBreakpointValue } from "@chakra-ui/react";
 import { v4 as uuidv4 } from 'uuid';
 import { ArrowBackIcon } from '@chakra-ui/icons'
 import { Entries } from "../../types/Entries"
-import { FilesTableItem } from "../FilesTableItem"
+import { FilesTableItem } from "../FilesLayoutItem"
 import { FolderPath } from "../../types/FolderPath";
 import { StyledGridItem } from "./StyledItems/StyledGridItem";
 
