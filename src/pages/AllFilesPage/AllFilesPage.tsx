@@ -2,8 +2,8 @@ import { FC, useContext } from "react";
 import { FilesTable } from "../../components/FilesTable";
 import { AuthContext } from "../../contexts/AuthContext";
 import { useDropbox } from "../../utils/hooks/useDropbox";
-import { Spinner } from "@chakra-ui/react";
 import { BreadCrumb } from "../../components/BreadCrumb/BreadCrumb";
+import { Loader } from "../../components/Loader/Loader";
 
 export const AllFilesPage: FC = () => {
   const token = useContext(AuthContext)
@@ -12,7 +12,6 @@ export const AllFilesPage: FC = () => {
     entries,
     isLoading,
     isDataLoaded,
-    errorMessage,
     dirPaths,
     rootPath,
     isRootDir,
@@ -25,15 +24,9 @@ export const AllFilesPage: FC = () => {
       {dataLoaded && (
         <BreadCrumb onOpenFolder={openFolder} dirPaths={dirPaths}  />
       )}
-      
+
       {isLoading 
-        ? <Spinner
-            thickness='4px'
-            speed='0.65s'
-            emptyColor='gray.200'
-            color='blue.500'
-            size='xl'
-          />
+        ? <Loader />
         : <FilesTable 
             entries={entries} 
             onOpenFolder={openFolder} 

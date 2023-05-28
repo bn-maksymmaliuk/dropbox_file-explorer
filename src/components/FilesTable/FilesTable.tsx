@@ -1,14 +1,16 @@
 import { FC } from "react"
 import {
+  Center,
   Grid,
-  GridItem,
-  IconButton,
+  Heading,
 } from '@chakra-ui/react'
+import { useBreakpointValue } from "@chakra-ui/react";
 import { v4 as uuidv4 } from 'uuid';
 import { ArrowBackIcon } from '@chakra-ui/icons'
 import { Entries } from "../../types/Entries"
 import { FilesTableItem } from "../FilesTableItem"
 import { FolderPath } from "../../types/FolderPath";
+import { StyledGridItem } from "./StyledItems/StyledGridItem";
 
 interface Props {
   entries: Entries[];
@@ -23,41 +25,54 @@ export const FilesTable: FC<Props> = ({
   rootPath, 
   isRootDir 
 }) => {
+  const columns = useBreakpointValue({
+    base: "repeat(1, 1fr)",
+    sm: "repeat(2, 1fr)",
+    md: "repeat(3, 1fr)",
+    lg: "repeat(4, 1fr)",
+    xl: "repeat(6, 1fr)",
+  });
+
   return (
-    <Grid templateColumns='repeat(5, 1fr)' gap={6}>
+    <>
+<Grid 
+      templateColumns={columns} 
+      gap={6}
+    >
       {!isRootDir && (
-      <GridItem key={uuidv4()}>
-        <IconButton
-          colorScheme='blue'
+        <StyledGridItem
           onClick={() => onOpenFolder(
             rootPath.path, 
             rootPath.pathToDisplay
-          )}
-          aria-label='Search database'
-          icon={<ArrowBackIcon />}
-        />
-      </GridItem>
+          )} 
+          key={uuidv4()}
+        >
+        <ArrowBackIcon />
+        To parent directory
+      </StyledGridItem>
       )}
 
-      {entries.length 
-      ? (
+      {entries.length ? (
         <>
         {entries.map(element => (
-        <GridItem key={uuidv4()}>
-          <ul>
+          <StyledGridItem key={uuidv4()}>
             <FilesTableItem 
               file={element} 
               isRootDir={isRootDir} 
               onOpenDir={onOpenFolder} 
               rootPath={rootPath}
             />
-          </ul>
-        </GridItem>
-      ))}
+          </StyledGridItem>
+        ))}
         </>
-      ) : (
-        <div>No files</div>
-      )}
+      ): <></>}
     </Grid>
+
+    {!entries.length &&
+    <Center>
+      <Heading>Folder is empty</Heading>
+    </Center>
+    }
+    </>
   )
 }

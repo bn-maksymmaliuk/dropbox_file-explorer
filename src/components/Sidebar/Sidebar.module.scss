@@ -4,21 +4,23 @@
   &__list {
     display: flex;
     flex-direction: column;
-  
+
     gap: 10px;
     background-color: #f7f5f2;
     border-right: 1px solid $border-color;
-  
+
     height: 100%;
     max-width: 220px;
     min-width: 220px;
     padding: 32px 0 0 32px;
-   
   }
 
   &__item {
     display: inline-block;
     text-align: start;
+  }
 
+  &.hidden {
+    display: none;
   }
 }
