@@ -7,7 +7,7 @@ import './styles/reset.scss'
 import style from './App.module.scss'
 import { Header } from './components/Header'
 import { Sidebar } from './components/Sidebar'
-import { RecentFilesPage } from './pages/RecentFilesPage/RecentFilesPage'
+import { RecentFilesPage } from './pages/RecentFilesPage'
 
 export const App = () => {
   return (

@@ -1,3 +1,5 @@
+@import '../../styles/utils/variables';
+
 .header {
   display: flex;
   align-items: center;
@@ -6,7 +8,7 @@
   width: 100%;
   padding: 10px;
 
-  border-bottom: 1px solid #dfdcd8;
+  border-bottom: 1px solid $border-color;
 
   &__title {
     font-size: 24px;
