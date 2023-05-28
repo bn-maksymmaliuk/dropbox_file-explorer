@@ -1,7 +1,7 @@
-import { FC } from 'react'
-import style from './Header.module.scss'
-import logo from '../../assets/Dropbox_Icon.png'
-import { Link } from 'react-router-dom'
+import { FC } from 'react';
+import style from './Header.module.scss';
+import logo from '../../assets/Dropbox_icon.png';
+import { Link } from 'react-router-dom';
 
 export const Header: FC = () => {
   return (
