@@ -75,7 +75,8 @@ export const AutorizationForm: FC<Props> = ({ onLogin }) => {
         <form onSubmit={handleSubmit}>
           <FormControl
             isInvalid={lengthError}
-            w='440px'
+            w={['90%', '440px']}
+            mx='auto'
           >
             <FormLabel fontSize='28px' textAlign='center'>
               Please enter your API token
