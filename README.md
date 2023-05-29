@@ -1,5 +1,5 @@
 # Dropbox File Explorer
-The Dropbox File Explorer is a web application that allows users to explore files stored in their Dropbox accounts. It provides a user-friendly interface for browsing files.
+The Dropbox File Explorer is a web application that allows users to explore files stored in their Dropbox accounts. It provides a user-friendly interface for browsing files. Here [DEMO](https://maksymmaliuk.github.io/dropbox_file-explorer/) link
 
 ## Features
 - File Browsing: Users can navigate through their Dropbox files and folders in a tree-like structure.
