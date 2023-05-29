@@ -1,15 +1,10 @@
 # Dropbox File Explorer
-The Dropbox File Explorer is a web application that allows users to explore and manage files stored in their Dropbox accounts. It provides a user-friendly interface for browsing files.
+The Dropbox File Explorer is a web application that allows users to explore files stored in their Dropbox accounts. It provides a user-friendly interface for browsing files.
 
 ## Features
 - File Browsing: Users can navigate through their Dropbox files and folders in a tree-like structure.
-- File Preview: Supported file types can be previewed directly in the application.
+- File Preview: Supported file types can be previewed directly in the Dropbox.
 - Authentication: Users need to authenticate with their Dropbox accounts to access their files.
-
-##  Technologies Used
-- Front-end: HTML, CSS, JavaScript, React.js
-- Back-end: Node.js, Express.js
-- Dropbox API: Used for authentication and file operations.
 
 ## Installation
 1. Clone the repository: git clone https://github.com/maksymmaliuk/dropbox_file-explorer.git
@@ -24,7 +19,7 @@ The Dropbox File Explorer is a web application that allows users to explore and 
 3. Paste the access token into the authorization form
 4. Once authenticated, you can view your files and view them.
 
-##Contributing
+## Contributing
 Contributions to the project are welcome. If you find any issues or have suggestions for improvements, please open an issue on the GitHub repository.
 
 ## Technologies Used
