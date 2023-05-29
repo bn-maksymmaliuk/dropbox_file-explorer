@@ -10,16 +10,15 @@ interface Props {
 }
 
 export const BreadCrumb: FC<Props> = React.memo(({ onOpenFolder, dirPaths }) => {
-
   const handleClick = (path: string, pathToDisplay: string) => {
     onOpenFolder(path, pathToDisplay);
   };
 
   return (
-    <Breadcrumb pb="25px">
+    <Breadcrumb pb="25px" flexWrap="wrap">
       {dirPaths.map((element, index) => {
         const { path, pathToDisplay } = element;
-        const isLastElement = index === dirPaths.length - 1
+        const isLastElement = index === dirPaths.length - 1;
 
         return (
           <BreadcrumbItem key={uuidv4()} isCurrentPage={isLastElement}>

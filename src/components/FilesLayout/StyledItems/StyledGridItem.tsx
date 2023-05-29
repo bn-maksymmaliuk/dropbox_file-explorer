@@ -19,7 +19,7 @@ export const StyledGridItem: FC<Props> = ({ children, onClick }) => {
       borderRadius="5px"
       gap={4}
       fontSize="16px"
-      minW='180px'
+      minW={['100%', '180px']}
       minH='60px'
       cursor="pointer"
       transition="background-color 0.3s ease-in-out"

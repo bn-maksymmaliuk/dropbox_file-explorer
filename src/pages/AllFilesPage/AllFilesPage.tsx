@@ -1,5 +1,5 @@
 import { FC, useContext } from "react";
-import { FilesTable } from "../../components/FilesTable";
+import { FilesLayout } from "../../components/FilesLayout";
 import { AuthContext } from "../../contexts/AuthContext";
 import { useDropbox } from "../../utils/hooks/useDropbox";
 import { BreadCrumb } from "../../components/BreadCrumb/BreadCrumb";
@@ -22,12 +22,15 @@ export const AllFilesPage: FC = () => {
   return (
     <> 
       {dataLoaded && (
-        <BreadCrumb onOpenFolder={openFolder} dirPaths={dirPaths}  />
+        <BreadCrumb
+          onOpenFolder={openFolder} 
+          dirPaths={dirPaths} 
+        />
       )}
 
       {isLoading 
         ? <Loader />
-        : <FilesTable 
+        : <FilesLayout
             entries={entries} 
             onOpenFolder={openFolder} 
             isRootDir={isRootDir}

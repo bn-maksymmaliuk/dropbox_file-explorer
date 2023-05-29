@@ -19,14 +19,14 @@ interface Props {
   rootPath: FolderPath;
 }
 
-export const FilesTable: FC<Props> = ({ 
+export const FilesLayout: FC<Props> = ({ 
   entries, 
   onOpenFolder, 
   rootPath, 
   isRootDir 
 }) => {
   const columns = useBreakpointValue({
-    base: "repeat(1, 1fr)",
+    base: "repeat(2, 1fr)",
     sm: "repeat(2, 1fr)",
     md: "repeat(3, 1fr)",
     lg: "repeat(4, 1fr)",
